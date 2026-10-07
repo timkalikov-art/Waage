@@ -1,0 +1,70 @@
+:root {
+  color-scheme: dark;
+  --bg: #000;
+  --text: #f5f5f7;
+  --muted: #8e8e93;
+  --field: #1c1c1e;
+  --border: #3a3a3c;
+  --card1: rgba(142,142,147,.10);
+  --card2: rgba(142,142,147,.15);
+  --blue: #0a84ff;
+  --green: #30d158;
+  --red: #ff453a;
+  --orange: #ff9f0a;
+}
+* { box-sizing: border-box; }
+html, body { margin: 0; min-height: 100%; background: var(--bg); color: var(--text); font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Helvetica Neue", Arial, sans-serif; }
+body { -webkit-tap-highlight-color: transparent; }
+button, input { font: inherit; }
+.app {
+  width: min(100%, 430px);
+  margin: 0 auto;
+  padding: calc(18px + env(safe-area-inset-top)) 16px calc(30px + env(safe-area-inset-bottom));
+}
+h1 { margin: 0 0 20px; text-align: center; font-size: 22px; line-height: 1.25; font-weight: 700; }
+.extruder-row { display: flex; justify-content: center; align-items: center; gap: 10px; margin-bottom: 18px; }
+.extruder-row label { font-size: 17px; }
+.input {
+  width: 80px; height: 36px; padding: 6px 8px; border-radius: 7px;
+  border: 1px solid var(--border); background: var(--field); color: var(--text);
+  text-align: center; outline: none;
+}
+.input:focus { border-color: var(--blue); box-shadow: 0 0 0 1px var(--blue); }
+.rate-input { width: 100px; }
+.restzeit { text-align: center; font-size: 17px; font-weight: 600; margin-bottom: 20px; color: var(--orange); }
+.card { border-radius: 12px; padding: 16px 12px; }
+.waagen-card { background: var(--card1); }
+.traeger-card { background: var(--card2); margin-top: 20px; }
+.waagen-grid {
+  display: grid;
+  grid-template-columns: 24px 48px 60px 80px minmax(66px,1fr);
+  column-gap: 8px; align-items: center; text-align: center;
+}
+.waagen-grid.header { font-weight: 700; margin-bottom: 9px; }
+.waagen-row { min-height: 46px; }
+.radio {
+  width: 18px; height: 18px; padding: 0; border: 2px solid var(--muted); border-radius: 50%;
+  background: transparent; position: relative; justify-self: center;
+}
+.radio.selected::after { content: ""; position: absolute; width: 8px; height: 8px; border-radius: 50%; background: var(--blue); inset: 3px; }
+.waage-name { text-align: center; }
+.soll { text-align: center; font-variant-numeric: tabular-nums; white-space: nowrap; }
+.positive { color: var(--green); }
+.negative { color: var(--red); }
+h2 { margin: 0 0 12px; text-align: center; font-size: 17px; font-weight: 600; }
+.segmented { display: grid; width: 100%; border: 1px solid var(--border); border-radius: 8px; overflow: hidden; background: #1c1c1e; }
+.segmented.four { grid-template-columns: repeat(4, 1fr); }
+.segmented.two { grid-template-columns: repeat(2, 1fr); margin-top: 12px; }
+.segmented button { min-height: 32px; border: 0; border-right: 1px solid var(--border); background: transparent; color: var(--text); padding: 5px 8px; }
+.segmented button:last-child { border-right: 0; }
+.segmented button.selected { background: #636366; color: #fff; }
+.traeger-inputs { display: grid; grid-template-columns: auto 80px auto 80px; gap: 8px; align-items: center; justify-content: center; margin-top: 12px; }
+.abschalten { margin-top: 12px; text-align: center; font-size: 17px; font-weight: 600; font-variant-numeric: tabular-nums; }
+@media (max-width: 380px) {
+  .app { padding-left: 10px; padding-right: 10px; }
+  .card { padding-left: 8px; padding-right: 8px; }
+  .waagen-grid { grid-template-columns: 20px 42px 56px 72px minmax(58px,1fr); column-gap: 5px; }
+  .input { width: 72px; }
+  .waagen-grid .input { width: 100%; }
+  .traeger-inputs { grid-template-columns: auto 72px auto 72px; gap: 6px; font-size: 15px; }
+}

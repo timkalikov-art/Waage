@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, user-scalable=no">
+  <meta name="theme-color" content="#000000">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="Waage">
+  <title>Waage</title>
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="apple-touch-icon" href="icons/icon-1024.png">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="app" id="app">
+    <h1 id="hauptwaage">Hauptwaage: W1</h1>
+
+    <div class="extruder-row">
+      <label for="extruderRate">Extruder kg/h:</label>
+      <input id="extruderRate" class="input rate-input" inputmode="decimal" autocomplete="off">
+    </div>
+
+    <div id="restzeit" class="restzeit">Restzeit: 0,00 min</div>
+
+    <section class="card waagen-card">
+      <div class="waagen-grid header">
+        <div></div><div>Waage</div><div>%</div><div>Ist</div><div>Soll</div>
+      </div>
+      <div id="waagenRows"></div>
+    </section>
+
+    <section class="card traeger-card">
+      <h2>Träger Berechnung</h2>
+
+      <div id="tragerPicker" class="segmented four" aria-label="Träger Waage"></div>
+
+      <div class="traeger-inputs">
+        <label>Total:</label>
+        <input id="totalTrager" class="input" inputmode="decimal" autocomplete="off">
+        <label>Durchsatz:</label>
+        <input id="durchsatz" class="input" inputmode="decimal" autocomplete="off">
+      </div>
+
+      <div id="reservePicker" class="segmented two" aria-label="Reserve">
+        <button type="button" data-reserve="450">450 kg</button>
+        <button type="button" data-reserve="90">90 kg</button>
+      </div>
+
+      <div id="abschalten" class="abschalten">Abschalten in: 0,00 h</div>
+    </section>
+  </main>
+  <script src="app.js"></script>
+</body>
+</html>
