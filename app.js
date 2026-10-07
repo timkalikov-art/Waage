@@ -108,7 +108,9 @@
       el.className = `soll ${d < 0 ? 'negative' : 'positive'}`;
     });
     const hours = tragerTimeHours();
-    $('abschalten').textContent = `Abschalten in: ${fmt(hours)} h`;
+    const abschaltZeit = new Date(Date.now() + hours * 60 * 60 * 1000);
+    const zeitText = abschaltZeit.toLocaleTimeString('de-DE', { hour: '2-digit', minute: '2-digit' });
+    $('abschalten').textContent = `Abschalten um: ${zeitText} Uhr`;
     $('abschalten').style.color = hours < 1 ? 'var(--red)' : 'var(--green)';
   }
 
